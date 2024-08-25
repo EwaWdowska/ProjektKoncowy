@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Flat;
 import pl.coderslab.repository.FlatRepository;
 import pl.coderslab.service.JpaFlatService;
+import pl.coderslab.service.PersonRentService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -19,9 +20,12 @@ public class FlatController {
 
     private final JpaFlatService jpaFlatService;
 
+
     @Autowired
-    public FlatController(JpaFlatService jpaFlatService, FlatRepository flatRepository) {
+    public FlatController(JpaFlatService jpaFlatService) {
         this.jpaFlatService = jpaFlatService;
+
+
     }
 
     @GetMapping("/allFlats")
@@ -31,15 +35,6 @@ public class FlatController {
         return "flat/allF";
     }
 
-//    @RequestMapping(value = "/add", method = RequestMethod.POST)
-//    public String saveFlat( Model model, @Valid Flat flat, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "flat/addF";
-//        }
-//        model.addAttribute("flat", new Flat());
-//        jpaFlatService.saveF(flat);
-//        return "redirect:/flats/allFlats";
-//    }
 
 
 
@@ -57,16 +52,6 @@ public class FlatController {
         jpaFlatService.saveF(flat);
         return "redirect:/flats/allFlats";
     }
-
-//    @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
-//    public String updateFlat(@PathVariable Long id, @Valid Flat flat, BindingResult result) {
-//        if (result.hasErrors()) {
-//            return "flat/edit";
-//        }
-//        flat.setId(id);
-//        jpaFlatService.updateF(flat);
-//        return "redirect:/allFlats";
-//    }
 
     @GetMapping("/edit/{id}")
     public String editFlatForm(@PathVariable Long id, Model model) {

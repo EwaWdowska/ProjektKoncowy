@@ -50,7 +50,7 @@
         <th>Id</th>
         <th>Imię</th>
         <th>Nazwisko</th>
-        <th>Adres wynajmu: </th>
+        <th>Adres Zameldowania: </th>
         <th>Telefon</th>
         <th>Email</th>
         <th>Rozpoczęcie najmu</th>
@@ -58,25 +58,25 @@
         <th>Kwota kaucji</th>
         <th>Kwota czynszu</th>
         <th>Dodatkowe informacje</th>
-        <th>Akcje</th>
     </tr>
-    <c:forEach var="personRent" items="${personRent}">
+    <c:forEach var="personRent" items="${personRent}" >
         <tr>
             <td>${personRent.id}</td>
             <td>${personRent.name}</td>
-            <td>${personRent.Surname}</td>
-            <td>${personRent.addres}</td>
+            <td>${personRent.surname}</td>
+            <td>${personRent.address}</td>
             <td>${personRent.numberPhone}</td>
             <td>${personRent.email}</td>
-            <td>${personRent.rent.rent.dateStartRent}</td>
-<%--            nie mam dostęþu do pól rent ( 2x rent !!!!!!!)--%>
-            <td>${personRent.rent.rent.dateEndRent}</td>
-            <td>${personRent.rent.rent.deposit}</td>
-            <td>${personRent.rent.rent.rentPrice}</td>
+            <td>${personRent.rent.dateStartRent}</td>
+<%--nie widzi pół --%>
+            <td>${personRent.rent.dateEndRent}</td>
+            <td>${personRent.rent.deposit}</td>
+            <td>${personRent.rent.rentPrice}</td>
             <td>${personRent.moreInformation}</td>
             <td>
-                <a href="${pageContext.request.contextPath}/personRents/edit/${personRent.id}">Edytuj</a> |
+                <a href="${pageContext.request.contextPath}/personRents/edit/${personRent.id}">Edytuj</a>
                 <a href="${pageContext.request.contextPath}/personRents/delete/${personRent.id}">Usuń</a>
+                <a href="${pageContext.request.contextPath}/personRents/details/${personRent.id}">Pokaż</a>
             </td>
         </tr>
     </c:forEach>

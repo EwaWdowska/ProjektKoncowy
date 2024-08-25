@@ -68,9 +68,8 @@
         <p><strong>E-mail:</strong> <span>${personRent.email}</span></p>
         <p><strong>Telefon:</strong> <span>${personRent.numberPhone}</span></p>
         <p><strong>Adres wynajmu:</strong> <span>${personRent.address}</span></p>
-        <p><strong>Okres najmu:</strong> od <span>${personRent.rent.rent.dateStartRent}</span> do <span>${personRent.rent.rent.dateEndRent}</span></p>
-<%--        //nie mam dostępu do pól--%>
-        <p><strong>Kaucja:</strong> <span>${personRent.rent.rent.deposit}</span> zł</p>
+        <p><strong>Okres najmu:</strong> od <span>${personRent.rent.dateStartRent}</span> do <span>${personRent.rent.dateEndRent}</span></p>
+        <p><strong>Kaucja:</strong> <span>${personRent.rent.deposit}</span> zł</p>
     </div>
     <div class="dates">
         <div>

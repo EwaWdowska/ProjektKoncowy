@@ -12,25 +12,19 @@ public class Rent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull(message = "Data rozpoczęcia najmu jest wymagana")
+    private String dateStartRent;
 
-    @Size(max = 10)
-    private LocalDate dateStartRent;
+    @NotNull(message = "Data rozpoczęcia najmu jest wymagana")
+    private String dateEndRent;
 
-
-    @Size(max = 10)
-    @Future
-    private LocalDate dateEndRent;
-
-    @NotBlank
-    @Min(0)
+    @Min(value = 0, message = "Kwota kaucji nie może być ujemna")
     private double deposit;
 
-    @NotBlank
-    @Min(0)
+    @Min(value = 0, message = "Kwota czynszu nie może być ujemna")
     private double rentPrice;
 
-    @NotBlank
-    @AssertTrue
+
     private boolean payDeposit;
 
 
@@ -38,42 +32,28 @@ public class Rent {
     @JoinColumn(name = "room_id")
     private Room room;
 
-    public Room getRoom() {
-        return room;
-    }
-
-    public void setRoom(Room room) {
-        this.room = room;
-    }
-
-
-
-
-
-
-    public @Size(max = 10) @Future LocalDate getDateEndRent() {
+    public @NotNull(message = "Data rozpoczęcia najmu jest wymagana") String getDateEndRent() {
         return dateEndRent;
     }
 
-    public void setDateEndRent(@Size(max = 10) @Future LocalDate dateEndRent) {
+    public void setDateEndRent(@NotNull(message = "Data rozpoczęcia najmu jest wymagana") String dateEndRent) {
         this.dateEndRent = dateEndRent;
     }
 
-    public @Size(max = 10) LocalDate getDateStartRent() {
+    public @NotNull(message = "Data rozpoczęcia najmu jest wymagana") String getDateStartRent() {
         return dateStartRent;
     }
 
-    public void setDateStartRent(@Size(max = 10) LocalDate dateStartRent) {
+    public void setDateStartRent(@NotNull(message = "Data rozpoczęcia najmu jest wymagana") String dateStartRent) {
         this.dateStartRent = dateStartRent;
     }
 
-    @NotBlank
-    @Min(0)
+    @Min(value = 0, message = "Kwota kaucji nie może być ujemna")
     public double getDeposit() {
         return deposit;
     }
 
-    public void setDeposit(@NotBlank @Min(0) double deposit) {
+    public void setDeposit(@Min(value = 0, message = "Kwota kaucji nie może być ujemna") double deposit) {
         this.deposit = deposit;
     }
 
@@ -85,23 +65,28 @@ public class Rent {
         this.id = id;
     }
 
-    @NotBlank
-    @AssertTrue
     public boolean isPayDeposit() {
         return payDeposit;
     }
 
-    public void setPayDeposit(@NotBlank @AssertTrue boolean payDeposit) {
+    public void setPayDeposit(boolean payDeposit) {
         this.payDeposit = payDeposit;
     }
 
-    @NotBlank
-    @Min(0)
+    @Min(value = 0, message = "Kwota czynszu nie może być ujemna")
     public double getRentPrice() {
         return rentPrice;
     }
 
-    public void setRentPrice(@NotBlank @Min(0) double rentPrice) {
+    public void setRentPrice(@Min(value = 0, message = "Kwota czynszu nie może być ujemna") double rentPrice) {
         this.rentPrice = rentPrice;
+    }
+
+    public Room getRoom() {
+        return room;
+    }
+
+    public void setRoom(Room room) {
+        this.room = room;
     }
 }

@@ -67,7 +67,8 @@
             <td>
 <%--                brak dostępu do pół!!!!!--%>
                 <a href="${pageContext.request.contextPath}/flats/edit/${flats.id}">Edytuj</a> |
-                <a href="${pageContext.request.contextPath}/flats/delete/${flats.id}">Usuń</a>
+                <a href="${pageContext.request.contextPath}/flats/delete/${flats.id}">Usuń</a> |
+    <a href="${pageContext.request.contextPath}/flats/details/${flats.id}">Pokaż</a>
             </td>
         </tr>
     </c:forEach>

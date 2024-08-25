@@ -1,11 +1,9 @@
 package pl.coderslab.entity;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
-import java.util.List;
 
 @Entity
 @Table(name = "person_rents")
@@ -15,7 +13,7 @@ public class PersonRent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Min(3)
+
     @Size(min = 2, max = 50, message = "Nazwisko musi mieć od 2 do 50 znaków")
     private String name;
 
@@ -27,7 +25,7 @@ public class PersonRent {
     private String address;
 
     @Size(min = 9)
-    private int numberPhone;
+    private String numberPhone;
 
     @Email
     private String email;
@@ -45,19 +43,17 @@ public class PersonRent {
         this.flat = flat;
     }
 
-    @ManyToMany
-    private List<Rent> rent;
 
-    public List<Rent> getRent() {
+    @OneToOne
+    private Rent rent;
+
+    public Rent getRent() {
         return rent;
     }
 
-    public void setRent(List<Rent> rent) {
+    public void setRent(Rent rent) {
         this.rent = rent;
     }
-
-
-
 
 
     public @NotBlank(message = "podaj adres wynajmu") String getAddress() {
@@ -93,28 +89,28 @@ public class PersonRent {
         this.moreInformation = moreInformation;
     }
 
-    public @Min(3) String getName() {
-        return name;
-    }
-
-    public void setName(@Min(3) String name) {
-        this.name = name;
-    }
-
     @Size(min = 9)
-    public int getNumberPhone() {
+    public String getNumberPhone() {
         return numberPhone;
     }
 
-    public void setNumberPhone(@Size(min = 9) int numberPhone) {
+    public void setNumberPhone(@Size(min = 9) String numberPhone) {
         this.numberPhone = numberPhone;
     }
 
-    public @NotBlank @Min(3) String getSurname() {
+    public @Size(min = 2, max = 50, message = "Nazwisko musi mieć od 2 do 50 znaków") String getName() {
+        return name;
+    }
+
+    public void setName(@Size(min = 2, max = 50, message = "Nazwisko musi mieć od 2 do 50 znaków") String name) {
+        this.name = name;
+    }
+
+    public @NotBlank @Size(min = 2, max = 30, message = "Imię musi mieć od 2 do 30 znaków") String getSurname() {
         return surname;
     }
 
-    public void setSurname(@NotBlank @Min(3) String surname) {
+    public void setSurname(@NotBlank @Size(min = 2, max = 30, message = "Imię musi mieć od 2 do 30 znaków") String surname) {
         this.surname = surname;
     }
 }

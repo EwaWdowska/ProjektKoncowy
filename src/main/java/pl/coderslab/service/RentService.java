@@ -2,10 +2,7 @@ package pl.coderslab.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.coderslab.entity.PersonRent;
 import pl.coderslab.entity.Rent;
-import pl.coderslab.entity.Room;
-import pl.coderslab.repository.PersonRentRepository;
 import pl.coderslab.repository.RentRepository;
 
 
@@ -46,9 +43,13 @@ public class RentService {
         rentRepository.save(rent);
     }
 
-    public List<Rent> findByPersonRentId(Long personRentId) {
-        return rentRepository.findPersonRentById(personRentId);
+   public List<Rent> findRentById(Long  personRentId) {
+       return rentRepository.findRentById(personRentId);
     }
+
+
+
+
 
 
 }

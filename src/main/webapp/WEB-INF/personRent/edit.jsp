@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Edycja Wynajmującego</title>
     <style>
-        /* Stylizacja analogiczna do poprzednich widoków */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
@@ -64,8 +64,8 @@
     <div class="header">
         <h1>Edycja Wynajmującego</h1>
     </div>
-    <form action="${pageContext.request.contextPath}/personRent/edit/${personRent.id}" method="post" class="form-container">
-<%--        //dlaczego id-Person a nie id - w encji id--%>
+    <form action="${pageContext.request.contextPath}/personRents/edit/${personRent.id}" method="post" class="form-container">
+
         <div class="form-group">
             <label for="name">Imię:</label>
             <input type="text" id="name" name="name" value="${personRent.name}" required>
@@ -75,8 +75,8 @@
             <input type="text" id="surname" name="surname" value="${personRent.surname}" required>
         </div>
         <div class="form-group">
-            <label for="addres">Adres wynajmu:</label>
-            <input type="text" id="addres" name="addres" value="${personRent.addres}" required>
+            <label for="address">Adres wynajmu:</label>
+            <input type="text" id="address" name="address" value="${personRent.address}" required>
         </div>
         <div class="form-group">
             <label for="email">E-mail:</label>
@@ -88,18 +88,36 @@
         </div>
         <!-- _______________________________________________________________________________________________-->
         <div class="form-group">
-            <label>Wynajmy:</label>
-            <ul>
-                <c:forEach var="personRent" items="${personRent}">
-                    <li>
-<%--                        nie widzi pól!!!!--%>
-                        Data rozpoczęcia: <span>${personRent.rent.rent.dateStartRent}</span>,
-                        Data zakończenia: <span>${personRent.rent.rent.dateEndRent}</span>,
-                        Kwota kaucji: <span>${personRent.rent.rent.deposit}</span>,
-                        Kwota czynszu: <span>${personRent.rent.rent.rentPrice}</span>
-                    </li>
-                </c:forEach>
-            </ul>
+
+            <h1>Wynajem:</h1>
+
+            <div class="form-group">
+                <label for="dateStartRent">Data rozpoczęcia:</label>
+                <input type="date" id="dateStartRent" name="dateStartRent" value="${personRent.rent.dateStartRent}" required>
+            </div>
+            <div class="form-group">
+                <label for="dateEndRent">Data zakończenia:</label>
+                <input type="date" id="dateEndRent" name="dateEndRent" value="${personRent.rent.dateEndRent}" required>
+            </div>
+            <div class="form-group">
+                <label for="deposit"> Kwota kaucji:</label>
+                <input type="number" step="0.01" id="deposit" name="deposit" value="${personRent.rent.deposit}" required>
+            </div>
+            <div class="form-group">
+                <label for="rentPrice"> Kwota czynszu :</label>
+                <input type="number" step="0.01" id="rentPrice" name="rentPrice" value="${personRent.rent.rentPrice}" required>
+            </div>
+<%--    <label>Wynajmy:</label>--%>
+<%--    <ul>--%>
+<%--                    <c:forEach var="rent" items="${rent}">--%>
+<%--                        <li>--%>
+<%--                        Data rozpoczęcia: <span>${rent.dateStartRent}</span>,--%>
+<%--                        Data zakończenia: <span>${rent.dateStartRent}</span>,--%>
+<%--                        Kwota kaucji: <span>${rent.dateStartRent}</span>,--%>
+<%--                        Kwota czynszu: <span>${rent.dateStartRent}</span>--%>
+<%--                    </li>--%>
+<%--                </c:forEach>--%>
+<%--            </ul>--%>
         </div>
         <div class="form-group">
             <button type="submit">Zapisz</button>

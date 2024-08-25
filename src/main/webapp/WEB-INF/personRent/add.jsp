@@ -113,8 +113,8 @@
             <input type="date" id="dateStartRent" name="dateStartRent" required>
         </div>
         <div class="form-group">
-            <label for="dateEndRoom">Data zakończenia najmu:</label>
-            <input type="date" id="dateEndRoom" name="dateEndRoom" required>
+            <label for="dateEndRent">Data zakończenia najmu:</label>
+            <input type="date" id="dateEndRent" name="dateEndRent" required>
         </div>
         <div class="form-group">
             <label for="deposit">Kwota kaucji:</label>
@@ -129,7 +129,7 @@
         </div>
         <div class="form-group">
             <label for="rentPrice">Kwota czynszu:</label>
-            <input type="number" step="0.01" id="rentPrice" name="rentPriceu" required>
+            <input type="number" step="0.01" id="rentPrice" name="rentPrice" required>
         </div>
         <div class="form-group">
             <label for="moreInformation">Dodatkowe informacje:</label>
