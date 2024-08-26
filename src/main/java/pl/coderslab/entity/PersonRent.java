@@ -4,6 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "person_rents")
@@ -32,7 +33,7 @@ public class PersonRent {
 
     private String moreInformation;
 
-    @OneToOne
+    @ManyToOne
     private Flat flat;
 
     public Flat getFlat() {
@@ -42,7 +43,6 @@ public class PersonRent {
     public void setFlat(Flat flat) {
         this.flat = flat;
     }
-
 
     @OneToOne
     private Rent rent;

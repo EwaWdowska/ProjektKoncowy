@@ -10,4 +10,5 @@ import java.util.List;
 
 @Repository
 public interface PersonRentRepository extends JpaRepository<PersonRent, Long> {
+    List<PersonRent> findPersonRentById(Long flatId);
 }

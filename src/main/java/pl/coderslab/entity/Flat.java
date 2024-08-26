@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity
@@ -39,7 +40,16 @@ public class Flat {
     @Column(nullable = false)
     private int quantityRoom;
 
+    @OneToMany
+    private List<PersonRent> personRent;
 
+    public List<PersonRent> getPersonRent() {
+        return personRent;
+    }
+
+    public void setPersonRent(List<PersonRent> personRent) {
+        this.personRent = personRent;
+    }
     public Flat() {
     }
 

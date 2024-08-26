@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Edycja Mieszkania</title>
     <style>
-        /* Stylizacja analogiczna do poprzednich widoków */
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;

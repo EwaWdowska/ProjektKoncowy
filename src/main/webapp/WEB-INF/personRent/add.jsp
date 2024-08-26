@@ -127,6 +127,12 @@
                 <option value="false">NIE</option>
             </select>
         </div>
+<%--        <div class="form-group">--%>
+<%--            <label for="flat">Mieszkanie:</label>--%>
+<%--            <select id="flat" name="payDeposit" required>--%>
+<%--                ${personRent.flat.city} , ${personRent.flat.street} ${personRent.flat.numberBuild} numer mieszkania: ${personRent.flat.numberFlat}--%>
+<%--            </select>--%>
+<%--        </div>--%>
         <div class="form-group">
             <label for="rentPrice">Kwota czynszu:</label>
             <input type="number" step="0.01" id="rentPrice" name="rentPrice" required>

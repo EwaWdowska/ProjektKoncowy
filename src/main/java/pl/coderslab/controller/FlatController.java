@@ -6,7 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import pl.coderslab.entity.Flat;
-import pl.coderslab.repository.FlatRepository;
+import pl.coderslab.entity.PersonRent;
+
 import pl.coderslab.service.JpaFlatService;
 import pl.coderslab.service.PersonRentService;
 
@@ -19,13 +20,13 @@ public class FlatController {
 
 
     private final JpaFlatService jpaFlatService;
+    private final PersonRentService personRentService;
 
 
     @Autowired
-    public FlatController(JpaFlatService jpaFlatService) {
+    public FlatController(JpaFlatService jpaFlatService, PersonRentService personRentService) {
         this.jpaFlatService = jpaFlatService;
-
-
+        this.personRentService = personRentService;
     }
 
     @GetMapping("/allFlats")
@@ -78,7 +79,16 @@ public class FlatController {
         return "redirect:/flats/allFlats";
     }
 
+    @GetMapping("/details/{id}")
+    public String detailsPersonRent(@PathVariable Long id, Model model) {
+        Flat flat  = jpaFlatService.getByIdF(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid flat Id:" + id));
+        List <PersonRent> personRent = personRentService.findPersonRentById(id);
+        model.addAttribute("flat",flat);
+        model.addAttribute("personRent", personRent);
 
+        return "flat/details";
+    }
 
 
 

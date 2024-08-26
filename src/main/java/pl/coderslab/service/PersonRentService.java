@@ -46,6 +46,10 @@ public class PersonRentService {
     }
 
 
+    public List<PersonRent> findPersonRentById(Long  flatId) {
+        return personRentRepository.findPersonRentById(flatId);
+    }
+
 
 
 }
